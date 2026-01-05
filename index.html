@@ -3,33 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Simple To-Do App to manage daily tasks" />
+    <meta name="author" content="Ahmed Al-Jbri" />
+    <meta name="theme-color" content="#ffffff" />
+
     <title>To-Do app</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1 class="title">To-Do app</h1>
     <hr />
-    <form action="" class="add-task" id="add-task">
-      <input type="text" class="title" id="title" />
-      <select name="status" class="status" id="status">
-        <option value="must">must</option>
-        <option value="should">should</option>
-        <option value="could">could</option>
+
+    <form class="add-task" id="add-task">
+      <input
+        type="text"
+        class="title-input"
+        id="title"
+        placeholder="What needs to be done?"
+        aria-label="Task Title"
+        required
+      />
+
+      <select
+        name="status"
+        class="status-select"
+        id="status"
+        aria-label="Task Priority"
+      >
+        <option value="must">Must</option>
+        <option value="should">Should</option>
+        <option value="could">Could</option>
       </select>
-      <button type="submit" class="icon-btn">
-        <span class="material-symbols-outlined">add</span>
+
+      <button type="submit" class="icon-btn" aria-label="Add Task">
+        <span class="material-symbols-outlined" aria-hidden="true">add</span>
       </button>
     </form>
-    <br />
-    <main class="task container">
-      <div class="task" id="task1">task1</div>
-      <div class="task" id="task1">task2</div>
-      <div class="task" id="task1">task3</div>
+    <main class="tasks-container" id="tasks-container">
+      <div class="task-item">task1</div>
+      <div class="task-item">task2</div>
+      <div class="task-item">task3</div>
     </main>
+
     <script src="scripts/main.js"></script>
   </body>
 </html>
