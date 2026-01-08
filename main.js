@@ -1,33 +1,43 @@
 const addTask = document.getElementById("add-task");
+const taskContainer = document.getElementById("tasks-container");
+const mustContainer = document.getElementById("must");
+const shouldContainer = document.getElementById("should");
+const couldContainer = document.getElementById("could");
 
 addTask.onsubmit = (e) => {
   e.preventDefault();
 
   const taskTitle = document.getElementById("title-input");
   const taskStatus = document.getElementById("status-select");
-  const taskContainer = document.getElementById("tasks-container");
   const taskHTML = `
   	<input type="checkbox" class="check-box" />
     <span class="task-title">${taskTitle.value}</span>
-    <span>${taskStatus.value}</span>
     <span class="material-symbols-outlined delete-button" aria-hidden="true">Delete</span>
 	`;
 
   if (taskTitle.value.trim() === "") {
-    addTask.classList.add("error");
+    taskTitle.classList.add("error");
     return;
   } else {
-    addTask.classList.remove("error");
+    taskTitle.classList.remove("error");
   }
 
   const task = document.createElement("div");
-  task.classList.add("task-item", taskStatus.value);
+  task.classList.add("task-item");
   task.innerHTML = taskHTML;
-  taskContainer.appendChild(task);
+
+  if (taskStatus.value === "must") {
+    mustContainer.appendChild(task);
+  } else if (taskStatus.value === "should") {
+    shouldContainer.appendChild(task);
+  } else {
+    couldContainer.appendChild(task);
+  }
+
   taskTitle.value = "";
 };
 
-document.addEventListener("click", (e) => {
+taskContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("delete-button")) {
     e.target.parentElement.remove();
   }
