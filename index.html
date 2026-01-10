@@ -18,34 +18,36 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1 class="title">To-Do app</h1>
-    <hr />
-
-    <form class="add-task" id="add-task" novalidate>
-      <input
-        type="text"
-        class="title-input"
-        id="title-input"
-        placeholder="What needs to be done?"
-        aria-label="Task Title"
-        required
-      />
-
-      <select
-        name="status"
-        class="status-select"
-        id="status-select"
-        aria-label="Task Priority"
-      >
-        <option value="must">Must</option>
-        <option value="should">Should</option>
-        <option value="could">Could</option>
-      </select>
-
-      <button type="submit" class="icon-btn" aria-label="Add Task">
-        <span class="material-symbols-outlined" aria-hidden="true">add</span>
-      </button>
-    </form>
+    <div>
+      <h1 class="title">To-Do app</h1>
+      <hr />
+  
+      <form class="add-task" id="add-task" novalidate>
+        <input
+          type="text"
+          class="title-input"
+          id="title-input"
+          placeholder="What needs to be done?"
+          aria-label="Task Title"
+          required
+        />
+  
+        <select
+          name="status"
+          class="status-select"
+          id="status-select"
+          aria-label="Task Priority"
+        >
+          <option value="must">Must</option>
+          <option value="should">Should</option>
+          <option value="could">Could</option>
+        </select>
+  
+        <button type="submit" class="icon-btn" aria-label="Add Task">
+          <span class="material-symbols-outlined" aria-hidden="true">add</span>
+        </button>
+      </form>
+    </div class="header">
 
     <main class="tasks-container" id="tasks-container">
       <div class="must" id="must">Must</div>
