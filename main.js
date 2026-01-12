@@ -1,8 +1,8 @@
 const addTask = document.getElementById("add-task");
 const taskContainer = document.getElementById("tasks-container");
-const mustContainer = document.getElementById("must");
-const shouldContainer = document.getElementById("should");
-const couldContainer = document.getElementById("could");
+const mustContainer = document.getElementById("must-container");
+const shouldContainer = document.getElementById("should-container");
+const couldContainer = document.getElementById("could-container");
 
 addTask.onsubmit = (e) => {
   e.preventDefault();
