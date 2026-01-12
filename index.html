@@ -21,7 +21,7 @@
     <div>
       <h1 class="title">To-Do app</h1>
       <hr />
-  
+
       <form class="add-task" id="add-task" novalidate>
         <input
           type="text"
@@ -31,7 +31,7 @@
           aria-label="Task Title"
           required
         />
-  
+
         <select
           name="status"
           class="status-select"
@@ -42,17 +42,26 @@
           <option value="should">Should</option>
           <option value="could">Could</option>
         </select>
-  
+
         <button type="submit" class="icon-btn" aria-label="Add Task">
           <span class="material-symbols-outlined" aria-hidden="true">add</span>
         </button>
       </form>
-    </div class="header">
+    </div>
 
     <main class="tasks-container" id="tasks-container">
-      <div class="must" id="must">Must</div>
-      <div class="should" id="should">should</div>
-      <div class="could" id="could">could</div>
+      <div class="container">
+        <h1 class="must-header">Must</h1>
+        <div id="must-container" class="column"></div>
+      </div>
+      <div class="container">
+        <h1 class="should-header">Should</h1>
+        <div id="should-container" class="column"></div>
+      </div>
+      <div class="container">
+        <h1 class="could-header">could</h1>
+        <div id="could-container" class="column"></div>
+      </div>
     </main>
 
     <script src="main.js"></script>
