@@ -18,10 +18,8 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div>
+    <div class="app-header">
       <h1 class="title">To-Do app</h1>
-      <hr />
-
       <form class="add-task" id="add-task" novalidate>
         <input
           type="text"
@@ -50,17 +48,17 @@
     </div>
 
     <main class="tasks-container" id="tasks-container">
-      <div class="container">
-        <h1 class="must-header">Must</h1>
-        <div id="must-container" class="column"></div>
+      <div class="column must">
+        <h1 class="column-header">Must</h1>
+        <div id="must-container" class="container"></div>
       </div>
-      <div class="container">
-        <h1 class="should-header">Should</h1>
-        <div id="should-container" class="column"></div>
+      <div class="column should">
+        <h1 class="column-header">Should</h1>
+        <div id="should-container" class="container"></div>
       </div>
-      <div class="container">
-        <h1 class="could-header">could</h1>
-        <div id="could-container" class="column"></div>
+      <div class="column could">
+        <h1 class="column-header">could</h1>
+        <div id="could-container" class="container"></div>
       </div>
     </main>
 
