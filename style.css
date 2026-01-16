@@ -1,34 +1,68 @@
 /* Base Layout */
 body {
-  height: 100vh;
+  height: 98vh;
   display: flex;
   flex-direction: column;
   gap: 40px;
   overflow: hidden;
+  background-color: #8ae2fb;
+}
+
+.material-symbols-outlined {
+  cursor: pointer;
 }
 
 /* Add Task Form */
+.app-header {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.title {
+  font-size: 50px;
+  margin: 0px;
+  padding: 0px;
+  font-weight: bolder;
+}
+
+.title-input {
+  border-radius: 10px;
+  outline-style: none;
+}
+/* .status-select {
+}
+.icon-btn {
+} */
 
 /* Main Container */
 .tasks-container {
   flex-grow: 1;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  min-width: 0;
+  min-height: 0;
+  gap: 20px;
 }
 
 /* Task Columns */
+.column {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  overflow: hidden;
+  min-height: 0;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.column-header {
+  margin: auto;
+  padding: 0px 20px 0px 20px;
+}
 
 .container {
   display: flex;
-  flex-direction: column;
-  height: 90%;
-  overflow: hidden;
-}
-
-.column {
-  display: flex;
-  flex-grow: 1;
   min-height: 0;
   flex-direction: column;
   gap: 10px;
@@ -36,16 +70,31 @@ body {
   padding: 10px;
 }
 
+div.must .column-header {
+  border-bottom: 2px solid #ff8c00;
+}
+div.should .column-header {
+  border-bottom: 2px solid #00ffe5;
+}
+div.could .column-header {
+  border-bottom: 2px solid #04ff00;
+}
 /* Task Items */
 .task-item {
   display: flex;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.084);
 }
 
 .task-title {
   flex-grow: 1;
-  text-overflow: ellipsis;
-  overflow: hidden;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: grab;
 }
 
 .task-title:hover {
@@ -53,9 +102,20 @@ body {
   overflow-wrap: anywhere;
 }
 
+.finish {
+  background-color: #dbdbdb;
+  order: 2;
+}
 .finish > .task-title {
   text-decoration: line-through;
   color: green;
+}
+
+.check-box {
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+  margin-right: 10px;
 }
 
 /* Media Queries */
