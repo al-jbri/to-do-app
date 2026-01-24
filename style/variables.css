@@ -1,0 +1,13 @@
+:root {
+  /* Colors */
+  --bg-color: #181818;
+  --base-color: #002aff;
+  --clmn-color: #1f1f1f;
+  --text-color: #ffffff;
+  --border-color: #2e2e2e;
+
+  /* Priorities */
+  --priority-must: #ff0000;
+  --priority-should: #ffff00;
+  --priority-could: #00ff00;
+}
