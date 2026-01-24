@@ -1,0 +1,78 @@
+.material-symbols-outlined {
+  cursor: pointer;
+}
+
+.delete-button {
+  color: red;
+}
+
+/* Form Elements */
+input,
+button,
+select {
+  border: 2px solid var(--border-color);
+  outline: none;
+  transition: 0.2s ease-in-out;
+  padding: 0.3125rem;
+  border-radius: 0.4rem;
+  font-size: 1.25rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  accent-color: var(--base-color);
+}
+
+input:focus {
+  border: 2px solid var(--base-color);
+}
+
+.add-task {
+  margin-top: 1.25rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.625rem;
+}
+
+.icon-btn {
+  display: flex;
+  justify-content: center;
+  background-color: var(--base-color);
+}
+
+/* Task Card */
+.task-item {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  border: 2px solid var(--border-color);
+}
+
+.task-title {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: grab;
+}
+
+.task-title:hover {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.check-box {
+  background-color: var(--bg-color);
+  cursor: pointer;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 0.625rem;
+}
+
+/* Task States */
+.finish {
+  order: 2;
+}
+.finish > .task-title {
+  text-decoration: line-through;
+  color: #5a5a5a;
+}
