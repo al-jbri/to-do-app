@@ -10,4 +10,6 @@
   --priority-must: #ff0000;
   --priority-should: #ffff00;
   --priority-could: #00ff00;
+
+  color-scheme: dark;
 }
