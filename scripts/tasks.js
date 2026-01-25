@@ -1,5 +1,4 @@
 const addTask = document.getElementById("add-task");
-const taskContainer = document.getElementById("tasks-container");
 const mustContainer = document.getElementById("must-container");
 const shouldContainer = document.getElementById("should-container");
 const couldContainer = document.getElementById("could-container");
@@ -36,13 +35,3 @@ addTask.onsubmit = (e) => {
 
   taskTitle.value = "";
 };
-
-taskContainer.addEventListener("click", (e) => {
-  if (e.target.classList.contains("delete-button")) {
-    e.target.parentElement.remove();
-  }
-
-  if (e.target.classList.contains("check-box")) {
-    e.target.parentElement.classList.toggle("finish");
-  }
-});
