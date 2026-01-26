@@ -38,6 +38,10 @@ input:focus {
   background-color: var(--base-color);
 }
 
+.title-input {
+  flex-grow: 1;
+}
+
 /* Task Card */
 .task-item {
   display: flex;
