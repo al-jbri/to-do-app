@@ -5,6 +5,9 @@
 // Retrieve data from LocalStorage or start empty
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 const container = document.querySelector("#tasks-container");
+const mustContainer = document.getElementById("must-container");
+const shouldContainer = document.getElementById("should-container");
+const couldContainer = document.getElementById("could-container");
 
 // Initial Render
 loadData();
@@ -32,9 +35,6 @@ function loadData() {
 // Render a single task to the DOM
 function renderingTask(renderTask) {
   // Select Columns
-  const mustContainer = document.getElementById("must-container");
-  const shouldContainer = document.getElementById("should-container");
-  const couldContainer = document.getElementById("could-container");
 
   // Prepare HTML
   const isChecked = renderTask.completed ? "checked" : "";
