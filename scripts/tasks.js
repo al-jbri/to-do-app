@@ -1,20 +1,11 @@
-// ==========================================
-// 1. INITIALIZATION & STATE
-// ==========================================
-
-// Retrieve data from LocalStorage or start empty
+// Key variables
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 const container = document.querySelector("#tasks-container");
 const mustContainer = document.getElementById("must-container");
 const shouldContainer = document.getElementById("should-container");
 const couldContainer = document.getElementById("could-container");
 
-// Initial Render
 loadData();
-
-// ==========================================
-// 2. HELPER FUNCTIONS
-// ==========================================
 
 // Save current state to LocalStorage
 function saveTasks() {
@@ -47,42 +38,32 @@ function renderingTask(renderTask) {
   const task = document.createElement("div");
   task.classList.add("task-item");
   task.innerHTML = taskHTML;
-
-  // Security: Inject text safely (Prevents XSS)
   task.querySelector(".task-title").textContent = renderTask.title;
 
-  // Add styles & ID
   if (renderTask.completed) {
     task.classList.add("finish");
   }
   task.dataset.id = renderTask.id;
 
-  // Append to correct column
-  if (renderTask.state === "must") {
-    mustContainer.appendChild(task);
-  } else if (renderTask.state === "should") {
-    shouldContainer.appendChild(task);
-  } else {
-    couldContainer.appendChild(task);
-  }
+  if (renderTask.state === "must") mustContainer.appendChild(task);
+  else if (renderTask.state === "should") shouldContainer.appendChild(task);
+  else couldContainer.appendChild(task);
 }
 
-// ==========================================
-// 3. EVENT LISTENERS
-// ==========================================
-
-// Handle Form Submit (Add New Task)
+// Event Listener
 container.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  // Validate: Ensure it's the correct form
   if (!e.target.classList.contains("add-task")) {
     return;
   }
 
-  // Get Input & Validate
-  const taskTitle = e.target.querySelector(".title-input");
+  const addTaskForm = e.target;
 
+  const taskTitle = addTaskForm.querySelector(".title-input");
+  const column = addTaskForm.closest(".column");
+
+  // Validate
   if (taskTitle.value.trim() === "") {
     taskTitle.classList.add("error");
     return;
@@ -93,20 +74,15 @@ container.addEventListener("submit", (e) => {
   // Create Task Object
   const task = {
     title: taskTitle.value,
-    state: "", // Will be set below
+    state: "",
     completed: false,
     id: Date.now(),
   };
 
   // Detect Column (Must / Should / Could)
-  const column = e.target.closest(".column");
-  if (column.classList.contains("must")) {
-    task.state = "must";
-  } else if (column.classList.contains("should")) {
-    task.state = "should";
-  } else {
-    task.state = "could";
-  }
+  if (column.classList.contains("must")) task.state = "must";
+  else if (column.classList.contains("should")) task.state = "should";
+  else task.state = "could";
 
   // Update State & UI
   tasks.push(task);
