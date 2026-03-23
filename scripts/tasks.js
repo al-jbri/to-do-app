@@ -66,6 +66,9 @@ container.addEventListener("submit", (e) => {
   // Validate
   if (taskTitle.value.trim() === "") {
     taskTitle.classList.add("error");
+    setTimeout(() => {
+      taskTitle.classList.remove("error");
+    }, 1000);
     return;
   } else {
     taskTitle.classList.remove("error");
