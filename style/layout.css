@@ -7,7 +7,8 @@ body {
   background: var(--bg-color);
   accent-color: var(--base-color);
   color: var(--text-color);
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: system-ui, sans-serif;
+  box-sizing: border-box;
 }
 
 .app-header {
