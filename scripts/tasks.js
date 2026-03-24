@@ -31,8 +31,8 @@ function renderingTask(renderTask) {
   const isChecked = renderTask.completed ? "checked" : "";
   const taskHTML = `
     <input type="checkbox" class="check-box" ${isChecked}/>
-    <span class="task-title"></span> <span class="material-symbols-outlined delete-button" aria-hidden="true">Delete</span>
-  `;
+    <span class="task-title"></span> <img src="res/delete.svg" alt="Delete" class="delete-button"/>
+    `;
 
   // Create Element
   const task = document.createElement("div");

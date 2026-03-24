@@ -1,12 +1,15 @@
+/* Variables & Theme Configuration */
+
 :root {
-  /* Colors */
-  --bg-color: #181818;
-  --base-color: #002aff;
-  --clmn-color: #1f1f1f;
+  /* Main Color Palette */
+  --bg-color: #0d0e10;
+  --base-color: #10b981;
+  --base-hover: #059669;
+  --clmn-color: #161718;
   --text-color: #ffffff;
   --border-color: #2e2e2e;
 
-  /* Priorities */
+  /* Task Priorities */
   --priority-must: #ff0000;
   --priority-should: #ffff00;
   --priority-could: #00ff00;

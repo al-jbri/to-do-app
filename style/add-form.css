@@ -1,0 +1,54 @@
+/* Task Creation Form & Inputs */
+
+/* General Form Elements */
+input,
+button,
+select {
+  border: 1px solid var(--border-color);
+  outline: none;
+  transition: 0.1s ease-in-out;
+  padding: 0.25rem;
+  border-radius: 0.3rem;
+  font-size: 0.9rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  accent-color: var(--base-color);
+}
+
+input:focus {
+  border: 2px solid var(--base-color);
+}
+
+input.error {
+  border-color: red;
+}
+
+/* Add Task Layout */
+.add-task {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.title-input {
+  flex-grow: 1;
+}
+
+/* Add Button Styles */
+.add-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--base-color);
+  gap: 0.3rem;
+}
+
+.add-btn:hover {
+  background-color: var(--base-hover);
+  cursor: pointer;
+}
+
+.add-btn .icon {
+  font-size: 1.3rem;
+}

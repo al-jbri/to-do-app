@@ -1,0 +1,96 @@
+/* Tasks Board */
+
+/* Main Board Container */
+.tasks-container {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-height: 0;
+  gap: 1rem;
+}
+
+/* Columns Setup */
+.column {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  overflow: hidden;
+  min-height: 0;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  background-color: var(--clmn-color);
+}
+
+.column-header {
+  margin: auto;
+  padding: 0.4rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 2px solid;
+}
+
+.column-header.could {
+  border-bottom-color: var(--priority-could);
+}
+.column-header.should {
+  border-bottom-color: var(--priority-should);
+}
+.column-header.must {
+  border-bottom-color: var(--priority-must);
+}
+
+.container {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+
+/* Individual Task Items */
+.task-item {
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem;
+  border-radius: 0.3rem;
+  border: 2px solid var(--border-color);
+}
+
+.task-title {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: grab;
+}
+
+.task-title:hover {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.check-box {
+  background-color: var(--bg-color);
+  cursor: pointer;
+  height: 1.2rem;
+  width: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+.task-item .delete-button {
+  transition: 0.1s ease-in-out;
+}
+
+.task-item .delete-button:hover {
+  filter: brightness(0.6) contrast(1.2);
+  cursor: pointer;
+}
+
+/* Task States */
+.finish {
+  order: 2;
+}
+
+.finish > .task-title {
+  text-decoration: line-through;
+  color: #5a5a5a;
+}
