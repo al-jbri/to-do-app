@@ -1,0 +1,20 @@
+/* clear tasks */
+
+.column {
+  position: relative;
+}
+
+.clear-tasks {
+  position: absolute;
+  top: 0.4rem;
+  right: 1rem;
+  background-color: transparent;
+  border: none;
+
+  transition: 0.1s ease-in-out;
+}
+
+.clear-tasks:hover {
+  filter: brightness(0.6) contrast(1.2);
+  cursor: pointer;
+}

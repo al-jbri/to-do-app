@@ -120,3 +120,27 @@ container.addEventListener("click", (e) => {
     }
   }
 });
+
+// clear tasks helper function
+function clearTasks(type) {
+  tasks = tasks.filter((task) => task.state !== type);
+  saveTasks();
+  loadData();
+}
+
+// clear tasks lisenter
+container.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("clear-tasks")) return;
+
+  switch (e.target.id) {
+    case "must-clear-task":
+      clearTasks("must");
+      break;
+    case "should-clear-task":
+      clearTasks("should");
+      break;
+    case "could-clear-task":
+      clearTasks("could");
+      break;
+  }
+});
