@@ -1,11 +1,11 @@
 /* Mobile & Tablet Responsive */
 
-@media (max-width: 830px) {
+@media (max-width: 850px) {
   .tasks-container {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 15px;
+    gap: 5vw;
     padding-bottom: 10px;
   }
 
