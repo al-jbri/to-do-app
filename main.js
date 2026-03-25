@@ -1,19 +1,18 @@
-// Key variables
+// Variables & Setup
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 const container = document.querySelector("#tasks-container");
 const mustContainer = document.getElementById("must-container");
 const shouldContainer = document.getElementById("should-container");
 const couldContainer = document.getElementById("could-container");
 
-loadData();
+refreshData();
 
-// Save current state to LocalStorage
+// State Management & Rendering
 function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-// Clear containers and re-render all tasks
-function loadData() {
+function refreshData() {
   document.getElementById("must-container").innerHTML = "";
   document.getElementById("should-container").innerHTML = "";
   document.getElementById("could-container").innerHTML = "";
@@ -23,18 +22,13 @@ function loadData() {
   });
 }
 
-// Render a single task to the DOM
 function renderingTask(renderTask) {
-  // Select Columns
-
-  // Prepare HTML
   const isChecked = renderTask.completed ? "checked" : "";
   const taskHTML = `
     <input type="checkbox" class="check-box" ${isChecked}/>
     <span class="task-title"></span> <img src="res/delete.svg" alt="Delete" class="delete-button"/>
     `;
 
-  // Create Element
   const task = document.createElement("div");
   task.classList.add("task-item");
   task.innerHTML = taskHTML;
@@ -45,12 +39,20 @@ function renderingTask(renderTask) {
   }
   task.dataset.id = renderTask.id;
 
-  if (renderTask.state === "must") mustContainer.appendChild(task);
-  else if (renderTask.state === "should") shouldContainer.appendChild(task);
-  else couldContainer.appendChild(task);
+  switch (renderTask.state) {
+    case "must":
+      mustContainer.appendChild(task);
+      break;
+    case "should":
+      shouldContainer.appendChild(task);
+      break;
+    case "could":
+      couldContainer.appendChild(task);
+      break;
+  }
 }
 
-// Event Listener
+// Add New Task
 container.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -59,11 +61,9 @@ container.addEventListener("submit", (e) => {
   }
 
   const addTaskForm = e.target;
-
   const taskTitle = addTaskForm.querySelector(".title-input");
   const column = addTaskForm.closest(".column");
 
-  // Validate
   if (taskTitle.value.trim() === "") {
     taskTitle.classList.add("error");
     setTimeout(() => {
@@ -74,7 +74,6 @@ container.addEventListener("submit", (e) => {
     taskTitle.classList.remove("error");
   }
 
-  // Create Task Object
   const task = {
     title: taskTitle.value,
     state: "",
@@ -82,53 +81,47 @@ container.addEventListener("submit", (e) => {
     id: Date.now(),
   };
 
-  // Detect Column (Must / Should / Could)
   if (column.classList.contains("must")) task.state = "must";
   else if (column.classList.contains("should")) task.state = "should";
   else task.state = "could";
 
-  // Update State & UI
   tasks.push(task);
   saveTasks();
-  renderingTask(task);
+  refreshData();
   taskTitle.value = "";
 });
 
-// Handle Clicks (Delete & Toggle Check)
+// Task Actions (Delete & Toggle)
 container.addEventListener("click", (e) => {
   const taskItem = e.target.closest(".task-item");
 
-  // Ignore clicks outside tasks
   if (!taskItem) return;
 
   const taskId = Number(taskItem.dataset.id);
 
-  // A) Delete Action
   if (e.target.classList.contains("delete-button")) {
     tasks = tasks.filter((task) => task.id !== taskId);
     saveTasks();
-    taskItem.remove();
+    refreshData();
   }
 
-  // B) Checkbox Toggle Action
   if (e.target.classList.contains("check-box")) {
     const task = tasks.find((task) => task.id === taskId);
     if (task) {
       task.completed = !task.completed;
       saveTasks();
-      taskItem.classList.toggle("finish");
+      refreshData();
     }
   }
 });
 
-// clear tasks helper function
+// Clear Column Tasks
 function clearTasks(type) {
   tasks = tasks.filter((task) => task.state !== type);
   saveTasks();
-  loadData();
+  refreshData();
 }
 
-// clear tasks lisenter
 container.addEventListener("click", (e) => {
   if (!e.target.classList.contains("clear-tasks")) return;
 
