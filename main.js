@@ -25,8 +25,8 @@ function refreshData() {
 function renderingTask(renderTask) {
   const isChecked = renderTask.completed ? "checked" : "";
   const taskHTML = `
-    <input type="checkbox" class="check-box" ${isChecked}/>
-    <span class="task-title"></span> <img src="res/delete.svg" alt="Delete" class="delete-button"/>
+    <input type="checkbox" class="check-box" title="toogle task" ${isChecked} />
+    <span class="task-title"></span> <img src="res/delete.svg" role="button" tabindex="0" alt="Delete" title="delete this task" class="delete-button"/>
     `;
 
   const task = document.createElement("div");

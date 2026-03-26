@@ -14,4 +14,8 @@
     width: 85vw;
     scroll-snap-align: center;
   }
+
+  .github-btn {
+    display: none;
+  }
 }

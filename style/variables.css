@@ -3,16 +3,16 @@
 :root {
   /* Main Color Palette */
   --bg-color: #0d0e10;
-  --base-color: #10b981;
-  --base-hover: #059669;
-  --clmn-color: #161718;
+  --base-color: #3b82f6; /* أزرق مريح جداً للعين */
+  --base-hover: #2563eb;
+  --clmn-color: #141516;
   --text-color: #ffffff;
   --border-color: #2e2e2e;
 
   /* Task Priorities */
-  --priority-must: #ff0000;
-  --priority-should: #ffff00;
-  --priority-could: #00ff00;
+  --priority-must: #ef4444;
+  --priority-should: #eab308;
+  --priority-could: #22c55e;
 
   color-scheme: dark;
 }

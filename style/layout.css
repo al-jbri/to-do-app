@@ -2,10 +2,9 @@
 
 /* Base Setup */
 body {
-  height: 98vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
   overflow: hidden;
   background: var(--bg-color);
   accent-color: var(--base-color);

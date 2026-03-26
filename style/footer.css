@@ -1,0 +1,33 @@
+/* footer */
+.app-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5px;
+  font-size: 0.8rem;
+}
+
+.dua-msg {
+  font-style: italic;
+}
+
+.github-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: var(--border-color);
+  border-radius: 8px;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 5px 5px;
+  transition: 0.1s ease-in-out;
+}
+
+.github-btn:hover {
+  background-color: #1f1f1f;
+}
+
+.github-btn img {
+  width: 15px;
+  height: 15px;
+}
